@@ -18,7 +18,7 @@ var validateJSON = function() {
 	var context = {
         topic: function () {
 			var file = this.context.name;
-			var resourceName = path.join('lib/elastic/flows/' + file);
+			var resourceName = path.join(__dirname + '/../flows/' + file);
 			fs.readFile(resourceName, 'utf-8', this.callback);
         }
     };
@@ -37,7 +37,8 @@ var listFiles = function(files) {
 	return result;
 }
 
-fs.readdir('lib/elastic/flows/', function(err, files) {
+fs.readdir('flows', function(err, files) {
+	console.log(err);
 	if (err) throw err;
 	vows.describe('Tesing flows JSON validity').addBatch({
 		'Iterate over all files in ../lib/elastic/flows': listFiles(files)

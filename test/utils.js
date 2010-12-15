@@ -23,17 +23,7 @@ vows.describe('Testing fetchJSON').addBatch({
         	assert.include (err, '404');
         	assert.isUndefined(data);
         }
-	},
-	'Fetching 301 resource': {
-        topic: function() {
-        	fetchJSON("http://google.com/nonExistingResource", this.callback);
-        },
-        'should be ok': function(err, data) {
-        	assert.isNotNull(err);
-        	assert.include (err, '404');
-        	assert.isUndefined(data);
-        }
-	}
+	} // TODO Add test for 301
 }).export(module);
 
 // Test for XML to JSON parsing
