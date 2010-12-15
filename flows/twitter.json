@@ -1,0 +1,24 @@
+{
+   "_id": "twitter",
+   "title": "Twitter integration flow",
+   "steps": [
+       {
+			"id": "twitter1",
+			"component": "twitter",
+			"configuration": {
+				"username": "drobiazko"
+			}
+       },
+       {
+           "id": "delay1",
+           "component": "delay",
+           "configuration": {
+				"delay": 10
+           }
+       },
+       {
+           "id": "log1",
+           "component": "log"
+       }
+   ]
+}

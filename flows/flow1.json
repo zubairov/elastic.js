@@ -1,0 +1,21 @@
+{
+   "_id": "flow1",
+   "title": "First integration flow",
+   "steps": [
+       {
+           "id": "a99t4lbni6",
+           "component": "generator"
+       },
+       {
+           "id": "delay1",
+           "component": "delay",
+           "configuration": {
+				"delay": 10
+           }
+       },
+       {
+           "id": "kj7k7dc75s",
+           "component": "log"
+       }
+   ]
+}
