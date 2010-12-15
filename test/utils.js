@@ -7,11 +7,11 @@ var vows = require('vows'),
 vows.describe('Testing fetchJSON').addBatch({
     'Fetching available resource': {
         topic: function() {
-        	fetchJSON("http://twitter.com/statuses/user_timeline/zubairov.json", this.callback);
+        	fetchJSON("http://elastic.io/pipe.json", this.callback);
         },
         'should be ok': function(err, data) {
         	assert.isNull(err);
-        	assert.isTrue(data.length > 10);
+        	assert.isTrue(data.pipe.id.length > 0);
         }
 	},
     'Fetching 404 resource': {
@@ -23,7 +23,17 @@ vows.describe('Testing fetchJSON').addBatch({
         	assert.include (err, '404');
         	assert.isUndefined(data);
         }
-	} // TODO Add test for 301
+	},
+	'Fetching 301 resource': {
+        topic: function() {
+        	fetchJSON("http://google.com/nonExistingResource", this.callback);
+        },
+        'should be ok': function(err, data) {
+        	assert.isNotNull(err);
+        	assert.include (err, '404');
+        	assert.isUndefined(data);
+        }
+	}
 }).export(module);
 
 // Test for XML to JSON parsing
